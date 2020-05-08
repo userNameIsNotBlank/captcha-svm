@@ -132,3 +132,5 @@ def convert_feature_to_vector(feature_list):
 
 if __name__ == '__main__':
     print("start captcha app...")
+    #提取特征值
+    get_svm_train_txt()

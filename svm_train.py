@@ -68,7 +68,9 @@ def svm_model_test():
             print('')
 
 
+
 if __name__ == "__main__":
     print('svm demo')
-    # train_svm_model()
-    svm_model_test()
+    #train_svm_model()
+    #svm_model_test()
+    svm_data_demo()

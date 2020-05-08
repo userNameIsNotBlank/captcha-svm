@@ -143,7 +143,7 @@ def get_clear_bin_image(image):
     imgry = image.convert('L')  # 转化为灰度图
 
     table = get_bin_table()
-    out = imgry.point(table, '1')  # 变成二值图片:0表示黑色,1表示白色
+    out = imgry.point(table, '1') #type: Image.Image # 变成二值图片:0表示黑色,1表示白色
 
     noise_point_list = []  # 通过算法找出噪声点,第一步比较严格,可能会有些误删除的噪点
     for x in range(out.width):

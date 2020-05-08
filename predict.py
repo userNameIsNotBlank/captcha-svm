@@ -11,10 +11,12 @@
 
 """
 import io
+import traceback
 
 import requests
 from PIL import Image
-from dtlib.randtool import get_uuid1_key
+#from dtlib.randtool import get_uuid1_key
+import uuid
 
 from cfg import data_root
 from img_tools import get_clear_bin_image, get_crop_imgs
@@ -57,7 +59,8 @@ def crack_captcha():
         p_label, p_acc, p_val = svm_predict(yt, xt, model)
         img_ocr_name += ('%d' % p_label[0])  # 将识别结果合并起来
 
-    uuid_tag = get_uuid1_key()  # 生成一组随机的uuid的字符串（开发人员自己写，比较好实现）
+   # uuid_tag = get_uuid1_key()  # 生成一组随机的uuid的字符串（开发人员自己写，比较好实现）
+    uuid_tag = uuid.uuid1().hex  # 生成一组随机的uuid的字符串（开发人员自己写，比较好实现）
 
     img_save_folder = data_root + '/crack_img_res'
     img.save(img_save_folder + '/' + img_ocr_name + '__' + uuid_tag + '.png')
@@ -76,4 +79,5 @@ def crack_100():
 
 if __name__ == '__main__':
     crack_100()
+
     pass

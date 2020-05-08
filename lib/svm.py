@@ -17,7 +17,8 @@ __all__ = ['libsvm', 'svm_problem', 'svm_parameter',
 try:
 	dirname = path.dirname(path.abspath(__file__))
 	if sys.platform == 'win32':
-		libsvm = CDLL(path.join(dirname, r'..\windows\libsvm.dll'))
+		uri = path.join(dirname, r'..\windows\libsvm.dll')
+		libsvm = CDLL(uri)
 	else:
 		libsvm = CDLL(path.join(dirname, '../libsvm.so.2'))
 except:
